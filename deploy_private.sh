@@ -6,7 +6,7 @@ PRIVATE_USER="root"                 # Private 서버 계정
 PRIVATE_KEY="/root/.ssh/id_rsa"     # Public 서버에서 Private 서버 접속용 키
 
 # --- 실행 후 로그 남기기 ---
-exec > /root/app/deploy_private.log 2>&1
+exec > /ro ot/app/deploy_private.log 2>&1
 echo "Starting deployment to Private server..."
 
 
@@ -17,7 +17,7 @@ ssh-add $PRIVATE_KEY
 ssh -o StrictHostKeyChecking=no $PRIVATE_USER@$PRIVATE_HOST "mkdir -p /root/app"
 
 
-scp -o StrictHostKeyChecking=no /root/app/*.jar $PRIVATE_USER@$PRIVATE_HOST:/root/app/app.jar
+scp -o StrictHostKeyChecking=no /root/app/build/libs/*.jar $PRIVATE_USER@$PRIVATE_HOST:/root/app/app.jar
 
 
 ssh -o StrictHostKeyChecking=no $PRIVATE_USER@$PRIVATE_HOST "nohup java -jar /root/app/app.jar > /root/app/app.log 2>&1 &"
