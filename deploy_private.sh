@@ -6,7 +6,7 @@ PRIVATE_USER="root"                 # Private 서버 계정
 PRIVATE_KEY="/root/.ssh/id_rsa"     # Public 서버에서 Private 서버 접속용 키
 
 # --- 실행 후 로그 남기기 ---
-exec > /ro ot/app/deploy_private.log 2>&1
+exec > /root/app/deploy_private.log 2>&1
 echo "Starting deployment to Private server..."
 
 
